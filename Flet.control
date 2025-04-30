@@ -1,0 +1,151 @@
+import flet as ft
+
+def main(page: ft.Page):
+    count = 0  #переменная для хранения количества нажатий
+    page.title = "Окно"
+
+    def save():
+        with open("count.txt", "w") as file:
+            file.write(str(count))
+    def click(e):  #функция вызываемая при нажатии кнопки
+        nonlocal count
+        count += 1
+        count_text.value = f"Кнопка нажата: {count} раз"
+        count_text.update()
+
+    def save_click(e):
+        save()  #сохраняем количество нажатий в файл
+        save_text.value = "Сохранено"
+        save_text.update()
+
+    def reset(e):
+        nonlocal count
+        count = 0  #сбрасываем счетчик
+        count_text.value = "Кнопка нажата: 0 раз"  #обновляем текст
+        count_text.update()
+        save_text.value = ""  #очищаем сообщение о сохранении
+        save_text.update()
+
+    butt = ft.ElevatedButton(text="Нажми меня", on_click=click)  #создаем кнопку
+    count_text = ft.Text(value="Кнопка нажата: 0 раз")
+    reset_button = ft.ElevatedButton(text="Очистить", on_click=reset)
+    save_button = ft.ElevatedButton(text="Сохранить", on_click=save_click)
+    save_text = ft.Text(value="")
+
+    page.add(butt, reset_button, count_text, save_button, save_text)  #выводим все на страницу
+
+ft.app(target=main)  #запускаем
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
